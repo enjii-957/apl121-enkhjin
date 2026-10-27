@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="quest"/>
+        <attribute name="authors" value="Enkhjin"/>
+        <attribute name="about" value="Too tayah toglooom"/>
+        <attribute name="saved" value="2026-10-27 12:36:04 PM"/>
+        <attribute name="created" value="2026-10-27 12:40:00 PM"/>
+        <attribute name="edited" value="2026-10-27 12:40:00 PM"/>
+        <attribute name="edited" value="YWNlcjtMQVBUT1AtMFJKVkgyUEk7MjAyNi0xMC0yNzsxMjozNjowNCBQTTsxOzI4NzM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="name" type="String" array="False" size=""/>
+            <declare name="secretNum" type="Integer" array="False" size=""/>
+            <declare name="guess" type="Integer" array="False" size=""/>
+            <declare name="attempts" type="Integer" array="False" size=""/>
+            <declare name="maxAttempts" type="Integer" array="False" size=""/>
+            <declare name="game1Att" type="Integer" array="False" size=""/>
+            <declare name="game2Att" type="Integer" array="False" size=""/>
+            <declare name="game3Att" type="Integer" array="False" size=""/>
+            <declare name="choice" type="Integer" array="False" size=""/>
+            <declare name="found" type="Integer" array="False" size=""/>
+            <declare name="sorted1" type="Integer" array="False" size=""/>
+            <declare name="sorted2" type="Integer" array="False" size=""/>
+            <declare name="sorted3" type="Integer" array="False" size=""/>
+            <declare name="temp" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="percent" type="Real" array="False" size=""/>
+            <assign variable="maxAttempts" expression="7"/>
+            <assign variable="game1Att" expression="0"/>
+            <assign variable="game2Att" expression="0"/>
+            <assign variable="game3Att" expression="0"/>
+            <assign variable="choice" expression="0"/>
+            <output expression="&quot;=== &#1058;&#1054;&#1052;&#1068;&#1025;&#1054;&#1051;&#1054;&#1051;&#1058;&#1058;&#1054;&#1049; &#1058;&#1054;&#1054; &#1058;&#1040;&#1040;&#1061; &#1058;&#1054;&#1043;&#1051;&#1054;&#1054;&#1052; ===&quot;" newline="True"/>
+            <output expression="&quot;&#1053;&#1101;&#1088;&#1101;&#1101; &#1086;&#1088;&#1091;&#1091;&#1083;&#1085;&#1072; &#1091;&#1091;: &quot;" newline="False"/>
+            <input variable="name"/>
+            <output expression="&quot;&#1057;&#1072;&#1081;&#1085; &#1091;&#1091;, &quot; &amp; name &amp; &quot;!&quot;" newline="True"/>
+            <do expression="choice != 2">
+                <output expression="&quot;&quot;" newline="True"/>
+                <output expression="&quot;&#1062;&#1101;&#1089; &#1089;&#1086;&#1085;&#1075;&#1086;&#1085;&#1086; &#1091;&#1091;:&quot;" newline="True"/>
+                <output expression="&quot;1. &#1058;&#1086;&#1075;&#1083;&#1086;&#1086;&#1084; &#1101;&#1093;&#1083;&#1199;&#1199;&#1083;&#1101;&#1093;&quot;" newline="True"/>
+                <output expression="&quot;2. &#1043;&#1072;&#1088;&#1072;&#1093;&quot;" newline="True"/>
+                <output expression="&quot;&#1058;&#1072;&#1085;&#1099; &#1089;&#1086;&#1085;&#1075;&#1086;&#1083;&#1090;: &quot;" newline="False"/>
+                <input variable="choice"/>
+                <if expression="choice &lt; 1 || choice &gt; 2">
+                    <then>
+                        <output expression="&quot;&#1040;&#1083;&#1076;&#1072;&#1072;: &#1057;&#1086;&#1085;&#1075;&#1086;&#1083;&#1090; 1 &#1101;&#1089;&#1074;&#1101;&#1083; 2 &#1073;&#1072;&#1081;&#1093; &#1105;&#1089;&#1090;&#1086;&#1081;. &#1044;&#1072;&#1093;&#1080;&#1085; &#1086;&#1088;&#1086;&#1083;&#1076;&#1086;&#1085;&#1086; &#1091;&#1091;.&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="choice == 1">
+                            <then>
+                                <assign variable="secretNum" expression="Random(100) + 1"/>
+                                <assign variable="attempts" expression="0"/>
+                                <assign variable="found" expression="0"/>
+                                <output expression="&quot;&quot;" newline="True"/>
+                                <output expression="&quot;--- &#1064;&#1080;&#1085;&#1101; &#1090;&#1086;&#1075;&#1083;&#1086;&#1086;&#1084; &#1101;&#1093;&#1101;&#1083;&#1083;&#1101;&#1101; (1-100 &#1093;&#1086;&#1086;&#1088;&#1086;&#1085;&#1076;) ---&quot;" newline="True"/>
+                                <while expression="attempts &lt; maxAttempts &amp;&amp; found == 0">
+                                    <output expression="&quot;&#1054;&#1088;&#1086;&#1083;&#1076;&#1083;&#1086;&#1075;&#1086; &quot; &amp; (attempts + 1) &amp; &quot;/&quot; &amp; maxAttempts &amp; &quot;. &#1058;&#1072;&#1085;&#1099; &#1090;&#1072;&#1072;&#1084;&#1072;&#1075;: &quot;" newline="False"/>
+                                    <input variable="guess"/>
+                                    <if expression="guess &lt; 1 || guess &gt; 100">
+                                        <then>
+                                            <output expression="&quot;&#1040;&#1085;&#1093;&#1072;&#1072;&#1088;&#1091;&#1091;&#1083;&#1075;&#1072;: 1 &#1073;&#1086;&#1083;&#1086;&#1085; 100 &#1093;&#1086;&#1086;&#1088;&#1086;&#1085;&#1076; &#1073;&#1072;&#1081;&#1093; &#1105;&#1089;&#1090;&#1086;&#1081;!&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="attempts" expression="attempts + 1"/>
+                                            <if expression="guess == secretNum">
+                                                <then>
+                                                    <output expression="&quot;&#1041;&#1072;&#1103;&#1088; &#1093;&#1199;&#1088;&#1075;&#1101;&#1077;! &#1058;&#1072; &#1079;&#1257;&#1074; &#1090;&#1072;&#1072;&#1083;&#1072;&#1072;. &#1047;&#1072;&#1088;&#1094;&#1091;&#1091;&#1083;&#1089;&#1072;&#1085; &#1086;&#1088;&#1086;&#1083;&#1076;&#1083;&#1086;&#1075;&#1086;: &quot; &amp; attempts" newline="True"/>
+                                                    <assign variable="found" expression="1"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="guess &gt; secretNum">
+                                                        <then>
+                                                            <output expression="&quot;&#1052;&#1080;&#1085;&#1080;&#1081; &#1089;&#1072;&#1085;&#1072;&#1089;&#1072;&#1085; &#1090;&#1086;&#1086; &#1072;&#1088;&#1072;&#1081; &#1041;&#1040;&#1043;&#1040; &#1073;&#1072;&#1081;&#1085;&#1072;.&quot;" newline="True"/>
+                                                        </then>
+                                                        <else>
+                                                            <output expression="&quot;&#1052;&#1080;&#1085;&#1080;&#1081; &#1089;&#1072;&#1085;&#1072;&#1089;&#1072;&#1085; &#1090;&#1086;&#1086; &#1072;&#1088;&#1072;&#1081; &#1048;&#1061; &#1073;&#1072;&#1081;&#1085;&#1072;.&quot;" newline="True"/>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </while>
+                                <if expression="found == 0">
+                                    <then>
+                                        <output expression="&quot;&#1059;&#1091;&#1095;&#1083;&#1072;&#1072;&#1088;&#1072;&#1081;, &#1090;&#1072;&#1085;&#1099; 7 &#1086;&#1088;&#1086;&#1083;&#1076;&#1083;&#1086;&#1075;&#1086; &#1076;&#1091;&#1091;&#1089;&#1083;&#1072;&#1072;! &#1057;&#1072;&#1085;&#1072;&#1089;&#1072;&#1085; &#1090;&#1086;&#1086; &quot; &amp; secretNum &amp; &quot; &#1073;&#1072;&#1081;&#1083;&#1072;&#1072;.&quot;" newline="True"/>
+                                        <assign variable="attempts" expression="maxAttempts"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                                <assign variable="game3Att" expression="game2Att"/>
+                                <assign variable="game2Att" expression="game1Att"/>
+                                <assign variable="game1Att" expression="attempts"/>
+                                <if expression="game1Att &gt; 0 &amp;&amp; game2Att &gt; 0 &amp;&amp; game3Att &gt; 0">
+                                    <then>
+                                        <assign variable="sorted1" expression="game1Att"/>
+                                        <assign variable="sorted2" expression="game2Att"/>
+                                        <assign variable="sorted3" expression="game3Att"/>
+                                        <if expression="sorted1 &gt; sorted2">
+                                            <then>
+                                                <assign variable="temp" expression="sorted1"/>
+                                                <assign variable="sorted1" expression="sorted2"/>
+                                                <assign variable="sorted2" expression="temp"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                        <if expression="sorted1 &gt; sorted3">
+                                            <then>
+                                                <assign variable="temp" expression="sorted1"/>
+                                                <assign variable="sorted1" expression="sorted3"/>
+                                                <assign variable="sorted3" expression="temp"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                        <if expression="sorted2 &gt; sorted3">
+                                            <then>
+                                                <assign variable="temp" expression="sorted2"/>
+                                                <assign variable="sorted2" expression="sorted3"/>
+                                                <assign variable="sorted3" expression="temp"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                        <output expression="&quot;&quot;" newline="True"/>
+                                        <output expression="&quot;&#1058;&#1086;&#1075;&#1083;&#1086;&#1075;&#1095;: &quot; &amp; name" newline="True"/>
+                                        <output expression="&quot;========================================&quot;" newline="True"/>
+                                        <output expression="&quot;&#1058;&#1086;&#1075;&#1083;&#1086;&#1083;&#1090;&#1099;&#1085; &#1076;&#1091;&#1075;&#1072;&#1072;&#1088; | &#1054;&#1088;&#1086;&#1083;&#1076;&#1083;&#1086;&#1075;&#1086; | &#1198;&#1088; &#1076;&#1199;&#1085;&#1075;&#1080;&#1081;&#1085; &#1072;&#1085;&#1075;&#1080;&#1083;&#1072;&#1083;&quot;" newline="True"/>
+                                        <output expression="&quot;========================================&quot;" newline="True"/>
+                                        <call expression="PrintRow(&quot;&#1058;&#1086;&#1075;&#1083;&#1086;&#1083;&#1090; 1&quot;, game1Att)"/>
+                                        <call expression="PrintRow(&quot;&#1058;&#1086;&#1075;&#1083;&#1086;&#1083;&#1090; 2&quot;, game2Att)"/>
+                                        <call expression="PrintRow(&quot;&#1058;&#1086;&#1075;&#1083;&#1086;&#1083;&#1090; 3&quot;, game3Att)"/>
+                                        <output expression="&quot;========================================&quot;" newline="True"/>
+                                        <output expression="&quot;&#1069;&#1088;&#1101;&#1084;&#1073;&#1101;&#1083;&#1101;&#1075;&#1076;&#1089;&#1101;&#1085; &#1086;&#1088;&#1086;&#1083;&#1076;&#1083;&#1086;&#1075;&#1091;&#1091;&#1076; (&#1073;&#1072;&#1075;&#1072;&#1072;&#1089; &#1080;&#1093; &#1088;&#1199;&#1199;): &quot; &amp; sorted1 &amp; &quot;, &quot; &amp; sorted2 &amp; &quot;, &quot; &amp; sorted3" newline="True"/>
+                                        <output expression="&quot;&quot;" newline="True"/>
+                                        <output expression="&quot;--- &#1054;&#1085;&#1086;&#1086; &#1090;&#1086;&#1086;&#1094;&#1086;&#1093; &#1093;&#1199;&#1089;&#1085;&#1101;&#1075;&#1090; ---&quot;" newline="True"/>
+                                        <output expression="&quot;Oroldlogo | Angilal | Huvi&quot;" newline="True"/>
+                                        <for variable="i" start="1" end="7" direction="inc" step="1">
+                                            <assign variable="percent" expression="(maxAttempts + 1 - i) * 100.0 / maxAttempts"/>
+                                            <assign variable="percent" expression="Round(percent * 100) / 100.0"/>
+                                            <if expression="i &lt;= 4">
+                                                <then>
+                                                    <output expression="i &amp; &quot; | Sain | &quot; &amp; percent" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="i &amp; &quot; | Dund | &quot; &amp; percent" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </for>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </then>
+                            <else>
+                                <output expression="&quot;&#1058;&#1086;&#1075;&#1083;&#1086;&#1086;&#1084;&#1086;&#1086;&#1089; &#1075;&#1072;&#1088;&#1083;&#1072;&#1072;. &#1041;&#1072;&#1103;&#1088;&#1083;&#1072;&#1083;&#1072;&#1072;!&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="PrintRow" type="None" variable="">
+        <parameters>
+            <parameter name="title" type="String" array="False"/>
+            <parameter name="att" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <if expression="att &lt;= 4">
+                <then>
+                    <output expression="title &amp; &quot; | &quot; &amp; att &amp; &quot; | &#1057;&#1072;&#1081;&#1085;&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="title &amp; &quot; | &quot; &amp; att &amp; &quot; | &#1044;&#1091;&#1085;&#1076;&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
